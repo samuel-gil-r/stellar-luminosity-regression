@@ -121,16 +121,15 @@ Both notebooks were uploaded and executed in AWS SageMaker Studio using the Code
 ### Evidence
 
 **Project files inside SageMaker**
-
-![SageMaker Files](images/sagemaker_files.png)
+![sagemaker_files](https://github.com/user-attachments/assets/d08d3066-9c02-434d-bd48-c40b18626c39)
 
 **Execution of Part I notebook**
+![sagemaker_part1](https://github.com/user-attachments/assets/562f9776-31c4-4081-84a5-6936d6bca152)
 
-![Part I Execution](images/sagemaker_part1.png)
 
 **Execution of Part II notebook**
+![sagemaker_part2](https://github.com/user-attachments/assets/1a3509c0-236f-4c8d-9b60-f1623086dc7c)
 
-![Part II Execution](images/sagemaker_part2.png)
 
 ---
 
@@ -165,5 +164,3 @@ Samuel Antonio Gil Romero
 - AWS SageMaker Studio for cloud execution support  
 
 ---
-
-If you found this project useful, feel free to explore, fork, or build upon it.
