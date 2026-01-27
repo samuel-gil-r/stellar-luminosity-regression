@@ -52,7 +52,7 @@ The project is divided into two main notebooks, each building conceptually on th
 
 ---
 
-## 📘 Part I — Linear Regression with One Feature
+##  Part I — Linear Regression with One Feature
 
 In the first notebook, **stellar luminosity** is modeled as a linear function of **stellar mass**.
 
