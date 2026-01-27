@@ -1,10 +1,10 @@
-# 🌟 Stellar Luminosity Regression
+#  Stellar Luminosity Regression
 
 Modeling stellar luminosity from first principles using regression techniques — no black boxes, just math, code, and intuition.
 
 ---
 
-## 🚀 Project Overview
+##  Project Overview
 
 This project explores how **stellar luminosity** can be modeled using **regression techniques implemented from scratch**. The main objective is to deeply understand:
 
@@ -26,7 +26,7 @@ The project is part of a **Machine Learning Bootcamp**, with a strong emphasis o
 
 ---
 
-## ⚙️ Getting Started
+##  Getting Started
 
 The project is fully **self-contained** and does **not rely on external datasets** or machine learning frameworks.
 
@@ -34,7 +34,7 @@ All notebooks are designed to be executed **top-to-bottom** using **Run All**, p
 
 ---
 
-## 📦 Prerequisites
+##  Prerequisites
 
 To run the notebooks locally, you only need:
 
@@ -42,11 +42,11 @@ To run the notebooks locally, you only need:
 * **NumPy**
 * **Matplotlib**
 
-❌ No use of `scikit-learn`, `TensorFlow`, or similar libraries.
+ No use of `scikit-learn`, `TensorFlow`, or similar libraries.
 
 ---
 
-## 🗂️ Project Structure
+##  Project Structure
 
 The project is divided into two main notebooks, each building conceptually on the previous one.
 
@@ -74,7 +74,7 @@ While the linear model captures the **general trend**, it fails to model the **n
 
 ---
 
-## 📙 Part II — Polynomial Regression & Interaction Terms
+##  Part II — Polynomial Regression & Interaction Terms
 
 The second notebook extends the model by incorporating **nonlinear features** and **feature interactions** using stellar mass and temperature.
 
@@ -99,7 +99,7 @@ Introducing polynomial and interaction terms **dramatically improves model fit**
 
 ---
 
-## ▶️ Running the Notebooks
+##  Running the Notebooks
 
 Each notebook can be executed using:
 
@@ -136,17 +136,17 @@ Both notebooks were uploaded and executed in **AWS SageMaker Studio** using the 
 
 ---
 
-## 🔁 Local vs Cloud Execution
+##  Local vs Cloud Execution
 
 The notebooks produced **consistent results** when executed both locally and on **AWS SageMaker**.
 
-✅ No code modifications were required
+ No code modifications were required
 
 This confirms that the implementation is **portable**, **reproducible**, and **cloud-ready**.
 
 ---
 
-## 🛠️ Built With
+##  Built With
 
 * **Python**
 * **NumPy**
@@ -155,17 +155,17 @@ This confirms that the implementation is **portable**, **reproducible**, and **c
 
 ---
 
-## ✍️ Author
+##  Author
 
 **Samuel Antonio Gil Romero**
 
 ---
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 * Machine Learning Bootcamp course material
 * AWS SageMaker Studio for cloud execution support
 
 ---
 
-⭐ If you found this project useful, feel free to explore, fork, or build upon it!
+ If you found this project useful, feel free to explore, fork, or build upon it!
