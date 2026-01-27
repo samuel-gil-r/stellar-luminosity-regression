@@ -121,7 +121,7 @@ Both notebooks were uploaded and executed in AWS SageMaker Studio using the Code
 ### Evidence
 
 **Project files inside SageMaker**
-![sagemaker_files](https://github.com/user-attachments/assets/d08d3066-9c02-434d-bd48-c40b18626c39)
+![sagemaker](https://github.com/user-attachments/assets/997b2ea6-8139-48cd-8db3-e422cbe9072c)
 
 **Execution of Part I notebook**
 ![sagemaker_part1](https://github.com/user-attachments/assets/562f9776-31c4-4081-84a5-6936d6bca152)
