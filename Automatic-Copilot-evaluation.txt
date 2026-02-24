@@ -1,0 +1,291 @@
+===========================================================================
+  AUTOMATIC COPILOT EVALUATION — STELLAR LUMINOSITY REGRESSION
+  Graduate-level Machine Learning Homework | TA-Style Grading Report
+===========================================================================
+
+
+──────────────────────────────────────────────────────────────────────────
+SUMMARY
+──────────────────────────────────────────────────────────────────────────
+
+This repository provides a solid, well-organized implementation of linear
+and polynomial regression applied to stellar luminosity prediction. Both
+notebooks follow the assignment structure closely, use only the permitted
+libraries (NumPy, Matplotlib), define all data inline, and cover all
+mandatory components. The mathematical derivations are correct, gradient
+descent implementations are clean, and cost surface / convergence plots
+are present and legible. Two minor gaps reduce the score: Notebook 1
+lacks a multi-curve convergence comparison plot across learning rates and
+does not provide an explicit physical interpretation of the learned weight
+w; Notebook 2 leaves the inference prediction result without a following
+markdown interpretation cell. The README documents AWS SageMaker execution
+with linked screenshots and a local-vs-cloud comparison. Overall the work
+is technically sound and demonstrates clear understanding of regression
+from first principles.
+
+
+──────────────────────────────────────────────────────────────────────────
+GRADING BREAKDOWN  (scale 0.0 – 5.0)
+──────────────────────────────────────────────────────────────────────────
+
+1. REPOSITORY STRUCTURE & COMPLIANCE  ................................  0.5 / 0.5
+
+   • README.md present                                              ✓
+   • Two notebooks (Part I and Part II)                            ✓
+   • Datasets defined inside notebooks (not external files)        ✓
+   • Only NumPy and Matplotlib imported; no ML libraries           ✓
+   No deductions.
+
+──────────────────────────────────────────────────────────────────────────
+
+2. NOTEBOOK 1 — LINEAR REGRESSION (ONE FEATURE)  ...................  1.8 / 2.0
+
+   Evaluated items:
+
+   ✓  Dataset visualization: scatter plot of L vs M is present and
+      correctly labeled.
+   ✓  Dataset interpretation: markdown cell describes the nonlinear
+      growth trend and the expectation that a linear model will be
+      imperfect.
+   ✓  Hypothesis (predict) and MSE cost function: both implemented
+      correctly.
+   ✓  Cost surface [MANDATORY]: 2-D contour plot over a (w, b) grid
+      computed with nested loops; contour labels added; shape
+      consistent with a single global minimum. Explanation present.
+   ✓  Gradient derivation: partial derivatives ∂J/∂w and ∂J/∂b are
+      derived in a LaTeX-rendered markdown cell with correct formulas.
+   ✓  Non-vectorized gradient descent: loop-based compute_gradients_loop
+      implemented and verified.
+   ✓  Vectorized gradient descent: compute_gradients_vectorized uses
+      NumPy broadcasting; results confirmed to match the loop version.
+   ✓  Convergence plot [MANDATORY]: loss-vs-iteration curve present;
+      smooth monotone decrease demonstrates correct training.
+   ✓  Convergence discussion: markdown notes the smooth decrease and
+      the role of the learning rate.
+   ✓  Multiple learning-rate experiments ≥3 [MANDATORY]: three rates
+      (0.001, 0.01, 0.05) are tested and final loss / parameters
+      printed for each.
+   ✓  Final fit plot: scatter of actual data overlaid with regression
+      line; properly labeled and legended.
+   ✓  Limits-of-linearity discussion: final markdown cell explicitly
+      states that errors grow for high-mass stars and motivates more
+      complex models.
+
+   Deductions:
+   − 0.1  Learning-rate comparison is presented as printed numbers
+          only. A plot overlaying convergence curves for the three
+          learning rates (which is the conventional and informative
+          way to compare them) is absent. The mandatory requirement
+          of ≥3 experiments is met, but the visual comparison expected
+          of the section is missing.
+   − 0.1  Conceptual meaning of w is not explicitly stated. While the
+          model formula ŷ = wM + b is shown and the final w value is
+          obtained (~17), no cell explains that w represents the
+          approximate slope of luminosity increase per solar mass, or
+          what that value implies about stellar physics.
+
+──────────────────────────────────────────────────────────────────────────
+
+3. NOTEBOOK 2 — POLYNOMIAL REGRESSION (TWO FEATURES)  ..............  1.8 / 2.0
+
+   Evaluated items:
+
+   ✓  Visualization with temperature encoding [MANDATORY]: scatter
+      plot of L vs M with temperature as the color axis and a
+      colorbar; clearly motivates adding T as a second feature.
+   ✓  Feature engineering [M, T, M², M·T]: build_design_matrix
+      constructs the correct feature sets for M1, M2, and M3; shapes
+      verified programmatically.
+   ✓  Vectorized loss and gradients: mse_cost_X and gradients_X use
+      matrix operations (X.T @ error); implementation is correct.
+   ✓  Training and convergence plot: loss-vs-iteration curve for M3
+      is displayed and converges smoothly.
+   ✓  Feature selection experiment M1 / M2 / M3 [MANDATORY]: all
+      three models are trained, final losses and weights are printed,
+      and predicted-vs-actual scatter plots are generated for each
+      model, confirming that additional features improve the fit.
+   ✓  Interaction cost analysis (w_MT sweep) [MANDATORY]: a sweep of
+      the w_MT coefficient is plotted while other weights are held
+      fixed; the curve shows a clear minimum at the trained value,
+      confirming the interaction term is meaningful.
+   ✓  Inference example [MANDATORY]: prediction for a new star
+      (M=1.3 M☉, T=6600 K) is computed using the trained M3 model.
+
+   Deductions:
+   − 0.2  The inference result (cell 19) is a bare code cell that
+          outputs the raw array. No markdown cell follows it to
+          interpret the predicted luminosity value in physical or
+          relative terms (e.g., how it compares to the Sun, whether
+          it is consistent with the data trend, or what the model
+          uncertainty might be). This interpretation is listed as
+          a mandatory item ("Inference example and interpretation").
+
+──────────────────────────────────────────────────────────────────────────
+
+4. CLOUD EXECUTION EVIDENCE (SAGEMAKER)  ............................  0.5 / 0.5
+
+   ✓  Description of SageMaker execution: README explains that a
+      SageMaker Code Editor space was created on a CPU instance,
+      files were uploaded manually, and all cells executed without
+      errors.
+   ✓  Screenshot — project files in SageMaker: linked image shows
+      the workspace with the notebooks loaded.
+   ✓  Screenshot — execution of Part I: linked image shows the
+      notebook being run inside SageMaker.
+   ✓  Screenshot — execution of Part II: linked image shows the
+      second notebook running in SageMaker.
+   ✓  Local vs cloud comparison: README states that results were
+      consistent across environments and no code changes were
+      required.
+   No deductions.
+
+──────────────────────────────────────────────────────────────────────────
+
+TOTAL  ......................................................  4.6 / 5.0
+
+──────────────────────────────────────────────────────────────────────────
+FINAL GRADE
+──────────────────────────────────────────────────────────────────────────
+
+Final grade: 4.6 / 5.0
+
+Result: PASS  (≥ 3.0)
+
+
+──────────────────────────────────────────────────────────────────────────
+STRENGTHS
+──────────────────────────────────────────────────────────────────────────
+
+• Clean, readable code with consistent naming conventions across both
+  notebooks.
+• All mandatory elements are present: cost surface, convergence plot,
+  multi-LR experiments, M1/M2/M3 comparison, interaction sweep, and
+  inference example.
+• Correct mathematical derivation of gradients shown symbolically
+  before implementing them in code — demonstrates genuine understanding.
+• Both non-vectorized and vectorized gradient implementations are
+  included and explicitly cross-verified.
+• Feature engineering is well-structured through a single reusable
+  build_design_matrix function that supports all three model variants.
+• The interaction-weight cost sweep experiment is well-conceived and
+  clearly shows the importance of the M·T term.
+• AWS SageMaker evidence is thorough: three screenshots cover the
+  workspace, Part I execution, and Part II execution.
+• Dataset is physics-informed and internally consistent (approximate
+  mass–luminosity power law).
+• No forbidden libraries were used anywhere in the project.
+
+
+──────────────────────────────────────────────────────────────────────────
+ISSUES & MISSING ELEMENTS
+──────────────────────────────────────────────────────────────────────────
+
+• [Notebook 1] Learning-rate comparison is only numerical (printed
+  output). A multi-curve plot overlaying the three convergence
+  histories side by side would make the comparison much clearer and
+  is the standard way to present this experiment.
+
+• [Notebook 1] The physical meaning of the optimized weight w is
+  never stated explicitly. After training, a brief sentence explaining
+  what w ≈ 17 L☉/M☉ implies about the data would satisfy the
+  conceptual-understanding requirement for this item.
+
+• [Notebook 2] The inference cell (last cell) produces a result but
+  has no accompanying markdown interpretation. A sentence noting the
+  predicted value (~3.2 L☉, consistent with a star between 1.0 and
+  1.4 M☉ in the training set) would complete the mandatory
+  "inference and interpretation" requirement.
+
+• [Notebook 2] Only one learning rate is tested in Part II. While not
+  explicitly required for the second notebook, a brief mention of why
+  α=0.001 was chosen (e.g., larger rates diverge due to the wider
+  feature range) would strengthen the analysis.
+
+
+──────────────────────────────────────────────────────────────────────────
+TA FEEDBACK TO STUDENT
+──────────────────────────────────────────────────────────────────────────
+
+Overall, this is a well-executed submission that demonstrates solid
+understanding of regression from first principles. The code is clean,
+the mathematical derivations are correct, and all mandatory visualizations
+are present and informative.
+
+To improve the work:
+
+1. In Notebook 1, add a single plot that overlays the three convergence
+   curves (one per learning rate) on the same axes. This makes the
+   effect of α visually immediate and is the expected output for a
+   learning-rate comparison experiment.
+
+2. After obtaining the final w, add one sentence explaining its
+   physical meaning — for example, "w ≈ 17 indicates that, under this
+   linear approximation, luminosity increases by roughly 17 L☉ for
+   each additional solar mass." This closes the conceptual-understanding
+   item for Notebook 1.
+
+3. In Notebook 2, follow the inference cell with a markdown cell that
+   interprets the prediction: what value was obtained, how it compares
+   to nearby training points, and whether it is physically plausible.
+   This is a small but important step that turns a number into insight.
+
+These are minor additions — the foundation is already strong. Excellent
+work on the feature engineering design, the interaction-weight analysis,
+and the SageMaker documentation.
+
+
+===========================================================================
+  AI-GENERATION ASSESSMENT  (INFORMATIONAL ONLY — DOES NOT AFFECT GRADE)
+===========================================================================
+
+A. QUALITATIVE ASSESSMENT
+
+   Indicators consistent with AI assistance:
+   - Markdown explanations across both notebooks follow a highly uniform
+     three-sentence pattern (observation → mechanism → implication),
+     with no variation in style or tone between sections.
+   - Docstrings are complete and conventionally formatted in every
+     function, which is uncommon in typical student notebooks where
+     documentation is uneven.
+   - No debugging artifacts, commented-out experiments, or exploratory
+     cells that usually appear during iterative development.
+   - The README structure is very polished — consistent heading
+     hierarchy, emoji-free, minimal repetition — consistent with a
+     templated or AI-assisted document.
+   - Variable and function names are consistently idiomatic and
+     descriptive (e.g., gradient_descent_X, build_design_matrix),
+     suggesting either a very experienced developer or AI scaffolding.
+
+   Indicators consistent with human work:
+   - The dataset values (M, L, T) are physically coherent and follow
+     the known mass-luminosity relation, suggesting the student chose
+     them deliberately rather than using arbitrary dummy data.
+   - The choice of α=0.001 for the polynomial model (rather than
+     α=0.01 used in Part I) reflects a practical adjustment that could
+     come from actual experimentation.
+   - The interaction-weight sweep centers the range on the trained
+     w_MT value, implying the student understood what they were
+     plotting rather than copying a generic template.
+
+B. QUANTITATIVE ESTIMATE
+
+   Code:                 ~65% AI-assisted
+   Explanations/markdown: ~80% AI-assisted
+   README:               ~75% AI-assisted
+
+C. COMMENTARY
+
+   The code structure, docstring quality, and markdown uniformity
+   are above the typical baseline for a first-time regression homework,
+   suggesting significant AI tool involvement in drafting both the
+   explanatory text and the code scaffolding. However, several
+   physics-informed decisions (dataset design, learning-rate selection,
+   interaction sweep centering) indicate meaningful student engagement
+   with the material beyond simple prompt-and-paste behavior. The most
+   likely scenario is that AI tools were used as a coding and writing
+   assistant throughout the project, with the student providing domain
+   direction and reviewing outputs.
+
+   This assessment is observational and does not imply misconduct.
+
+===========================================================================
